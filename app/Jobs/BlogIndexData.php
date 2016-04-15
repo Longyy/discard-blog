@@ -4,6 +4,8 @@ namespace App\Jobs;
 
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
+use App\Post;
+use Carbon\Carbon;
 
 class BlogIndexData extends Job implements SelfHandling
 {

@@ -42,7 +42,7 @@ $factory->define(App\Tag::class, function ($faker) {
         'title' => ucfirst($word),
         'subtitle' => $faker->sentence,
         'page_image' => $images[mt_rand(0, 3)],
-        'meta_description' => "Meta for $word",
+        'mata_description' => "Meta for $word",
         'reverse_direction' => false,
     ];
 });

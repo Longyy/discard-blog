@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Post;
 use Carbon\Carbon;
 use App\Http\Requests;
-use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
+use App\Jobs\BlogIndexData;
 
 class BlogController extends Controller
 {

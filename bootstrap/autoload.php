@@ -13,7 +13,6 @@ define('LARAVEL_START', microtime(true));
 | loading of any our classes "manually". Feels great to relax.
 |
 */
-require __DIR__ . '/../app/helpers.php'; // 加载自定义工具类
 require __DIR__ . '/../vendor/autoload.php';
 
 /*
