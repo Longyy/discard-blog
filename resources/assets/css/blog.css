@@ -8,6 +8,7 @@ body {
     font-family: 'Lora', 'Times New Roman', serif;
     font-size: 20px;
     color: #404040;
+    background: #ebebeb none repeat scroll 0 0;
 }
 p {
     line-height: 1.5;
@@ -152,7 +153,7 @@ hr.small {
     .intro-header .site-heading,
     .intro-header .post-heading,
     .intro-header .page-heading {
-        padding: 150px 0;
+        padding: 70px 0;
     }
 }
 .intro-header .site-heading,
@@ -392,4 +393,11 @@ img::-moz-selection {
 }
 body {
     webkit-tap-highlight-color: #0085a1;
+}
+.section {
+    background-color: #FFF;
+    border-radius: 1px;
+    box-shadow: 0 14px 10px -10px rgba(0, 0, 0, 0.1);
+    margin: 0 0 20px;
+    padding: 40px 25px 30px;
 }

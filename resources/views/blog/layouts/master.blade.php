@@ -10,7 +10,6 @@
     <title>{{ $title or config('blog.title') }}</title>
 
     {{-- Styles --}}
-    <link href="http://staticlongyy/css/blog.css" rel="stylesheet">
     @yield('styles')
 
             <!-- Bootstrap Core CSS -->
@@ -19,7 +18,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet'>
-
+    <link href="http://staticlongyy/css/blog.css" rel="stylesheet">
 
     {{-- HTML5 Shim and Respond.js for IE8 support --}}
   <!--[if lt IE 9]>

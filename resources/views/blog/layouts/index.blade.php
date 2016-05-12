@@ -7,8 +7,6 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>{{ $title }}</h1>
-                        <hr class="small">
                         <h2 class="subheading">{{ $subtitle }}</h2>
                     </div>
                 </div>
@@ -20,68 +18,77 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-md-8">
+                <div class="section">
+                    {{-- 文章列表 --}}
+                    @foreach ($posts as $post)
+                        <div class="post-preview">
+                            <a href="{{ $post->url($tag) }}">
+                                <h2 class="post-title">{{ $post->title }}</h2>
+                                @if ($post->subtitle)
+                                    <h3 class="post-subtitle">{{ $post->subtitle }}</h3>
+                                @endif
+                            </a>
+                            <p class="post-meta">
+                                Posted on {{ $post->published_at->format('F j, Y') }}
+                                @if ($post->tags->count())
+                                    in
+                                    {!! join(', ', $post->tagLinks()) !!}
+                                @endif
+                            </p>
+                        </div>
+                        <hr>
+                    @endforeach
 
-                {{-- 文章列表 --}}
-                @foreach ($posts as $post)
-                    <div class="post-preview">
-                        <a href="{{ $post->url($tag) }}">
-                            <h2 class="post-title">{{ $post->title }}</h2>
-                            @if ($post->subtitle)
-                                <h3 class="post-subtitle">{{ $post->subtitle }}</h3>
+                    {{-- 分页 --}}
+                    <ul class="pager">
+
+                        {{-- Reverse direction --}}
+                        @if ($reverse_direction)
+                            @if ($posts->currentPage() > 1)
+                                <li class="previous">
+                                    <a href="{!! $posts->url($posts->currentPage() - 1) !!}">
+                                        <i class="fa fa-long-arrow-left fa-lg"></i>
+                                        Previous {{ $tag->tag }} Posts
+                                    </a>
+                                </li>
                             @endif
-                        </a>
-                        <p class="post-meta">
-                            Posted on {{ $post->published_at->format('F j, Y') }}
-                            @if ($post->tags->count())
-                                in
-                                {!! join(', ', $post->tagLinks()) !!}
+                            @if ($posts->hasMorePages())
+                                <li class="next">
+                                    <a href="{!! $posts->nextPageUrl() !!}">
+                                        Next {{ $tag->tag }} Posts
+                                        <i class="fa fa-long-arrow-right"></i>
+                                    </a>
+                                </li>
                             @endif
-                        </p>
-                    </div>
-                    <hr>
-                @endforeach
+                        @else
+                            @if ($posts->currentPage() > 1)
+                                <li class="previous">
+                                    <a href="{!! $posts->url($posts->currentPage() - 1) !!}">
+                                        <i class="fa fa-long-arrow-left fa-lg"></i>
+                                        Newer {{ $tag ? $tag->tag : '' }} Posts
+                                    </a>
+                                </li>
+                            @endif
+                            @if ($posts->hasMorePages())
+                                <li class="next">
+                                    <a href="{!! $posts->nextPageUrl() !!}">
+                                        Older {{ $tag ? $tag->tag : '' }} Posts
+                                        <i class="fa fa-long-arrow-right"></i>
+                                    </a>
+                                </li>
+                            @endif
+                        @endif
+                    </ul>
 
-                {{-- 分页 --}}
-                <ul class="pager">
+                </div>
 
-                    {{-- Reverse direction --}}
-                    @if ($reverse_direction)
-                        @if ($posts->currentPage() > 1)
-                            <li class="previous">
-                                <a href="{!! $posts->url($posts->currentPage() - 1) !!}">
-                                    <i class="fa fa-long-arrow-left fa-lg"></i>
-                                    Previous {{ $tag->tag }} Posts
-                                </a>
-                            </li>
-                        @endif
-                        @if ($posts->hasMorePages())
-                            <li class="next">
-                                <a href="{!! $posts->nextPageUrl() !!}">
-                                    Next {{ $tag->tag }} Posts
-                                    <i class="fa fa-long-arrow-right"></i>
-                                </a>
-                            </li>
-                        @endif
-                    @else
-                        @if ($posts->currentPage() > 1)
-                            <li class="previous">
-                                <a href="{!! $posts->url($posts->currentPage() - 1) !!}">
-                                    <i class="fa fa-long-arrow-left fa-lg"></i>
-                                    Newer {{ $tag ? $tag->tag : '' }} Posts
-                                </a>
-                            </li>
-                        @endif
-                        @if ($posts->hasMorePages())
-                            <li class="next">
-                                <a href="{!! $posts->nextPageUrl() !!}">
-                                    Older {{ $tag ? $tag->tag : '' }} Posts
-                                    <i class="fa fa-long-arrow-right"></i>
-                                </a>
-                            </li>
-                        @endif
-                    @endif
-                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <div class="section">.col-md-4</div>
+                <div class="section">.col-md-4</div>
+                <div class="section">.col-md-4</div>
             </div>
 
         </div>

@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'name' => "Laravel 学院",
-    'title' => "Laravel 学院",
+    'name' => "Beauty Girl",
+    'title' => "Beauty Girl",
     'subtitle' => 'http://laravelacademy.org',
     'description' => 'Laravel学院致力于提供优质Laravel中文学习资源',
     'author' => '学院君',
