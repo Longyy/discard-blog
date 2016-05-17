@@ -30,7 +30,7 @@
                                 @endif
                             </a>
                             <p class="post-meta">
-                                Posted on {{ $post->published_at->format('F j, Y') }}
+                                发表于 {{ $post->published_at->format('F j, Y') }}
                                 @if ($post->tags->count())
                                     in
                                     {!! join(', ', $post->tagLinks()) !!}
@@ -85,10 +85,8 @@
 
 
             </div>
-            <div class="col-md-4">
-                <div class="section">.col-md-4</div>
-                <div class="section">.col-md-4</div>
-                <div class="section">.col-md-4</div>
+            <div class="col-md-4 sidebar">
+                @include('blog.partials.page-sidebar')
             </div>
 
         </div>

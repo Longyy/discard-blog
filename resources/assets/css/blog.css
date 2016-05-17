@@ -24,7 +24,6 @@ h4,
 h5,
 h6 {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 800;
 }
 a {
     color: #404040;
@@ -153,7 +152,7 @@ hr.small {
     .intro-header .site-heading,
     .intro-header .post-heading,
     .intro-header .page-heading {
-        padding: 70px 0;
+        padding: 100px 0;
     }
 }
 .intro-header .site-heading,
@@ -220,18 +219,19 @@ hr.small {
     color: #0085a1;
 }
 .post-preview > a > .post-title {
-    font-size: 30px;
+    font-size: 20px;
     margin-top: 30px;
     margin-bottom: 10px;
 }
 .post-preview > a > .post-subtitle {
+    font-size:15px;
+    line-height:1.3;
     margin: 0;
-    font-weight: 300;
     margin-bottom: 10px;
 }
 .post-preview > .post-meta {
     color: #808080;
-    font-size: 18px;
+    font-size: 14px;
     font-style: italic;
     margin-top: 0;
 }
@@ -246,7 +246,7 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
     .post-preview > a > .post-title {
-        font-size: 36px;
+        font-size: 20px;
     }
 }
 .section-heading {
@@ -393,6 +393,7 @@ img::-moz-selection {
 }
 body {
     webkit-tap-highlight-color: #0085a1;
+    font-family: "Helvetica Neue",Helvetica,Microsoft Yahei,Hiragino Sans GB,WenQuanYi Micro Hei,sans-serif;
 }
 .section {
     background-color: #FFF;
@@ -400,4 +401,77 @@ body {
     box-shadow: 0 14px 10px -10px rgba(0, 0, 0, 0.1);
     margin: 0 0 20px;
     padding: 40px 25px 30px;
+}
+
+.navbar-brand {
+    font-size:150%;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #27ccc0;
+}
+
+.navbar-fixed-top {
+    height:60px;
+}
+
+.sidebar .section {
+    padding: 20px 15px 20px;
+}
+
+.social a {
+    color: #fff;
+    height: 45px;
+    margin-left: 6.5px;
+    margin-right: 6.5px;
+    position: relative;
+    width: 45px;
+}
+
+.fa-tencent-weibo::before {
+    content: "";
+}
+
+.social i {
+    border-radius: 4px;
+    font-size: 1.5em;
+    height: 43px;
+    padding-top: 7px;
+    width: 45px;
+}
+
+.tencentweibo {
+    background: #27ccc0 none repeat scroll 0 0;
+}
+
+.fa {
+    font-size: 1.23em;
+    text-align: center;
+    width: 16px;
+}
+
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.email {
+    background: #eca3ac none repeat scroll 0 0;
+}
+
+.social .rss {
+    background: #ff7c49 none repeat scroll 0 0;
+}
+
+.sidebar H2 {
+    font-weight: 400;
+    font-size: medium;
+    text-rendering: optimizelegibility;
+    margin:0;
+}
+
+.sidebar .title {
+    height: 30px;
+    border-bottom: 1px solid #90bba8;
 }
