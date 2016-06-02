@@ -4,15 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\Console\Descriptor\MarkdownDescriptor;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
 
 class Post extends Model
 {
-    protected $dates = ['published_at'];
+    use SoftDeletes;
+
+    protected $dates = ['published_at','delete_at'];
     // 在 Post 类的 $dates 属性后添加 $fillable 属性
     protected $fillable = [
         'title', 'subtitle', 'content_raw', 'page_image', 'meta_description','layout', 'is_draft', 'published_at',
     ];
+
 
 
     public function setTitleAttribute($value)
@@ -150,5 +154,18 @@ class Post extends Model
         }
 
         return $query->first();
+    }
+
+    /**
+     * 取最近发表的文章
+     * @return mixed
+     */
+    public static function latestPost()
+    {
+        return static::select('id', 'slug', 'title')
+            ->orderBy('published_at', 'desc')
+            ->skip(0)
+            ->take(5)
+            ->get();
     }
 }

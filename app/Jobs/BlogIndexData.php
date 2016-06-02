@@ -6,6 +6,7 @@ use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
 use App\Post;
 use Carbon\Carbon;
+use App\Tag;
 
 class BlogIndexData extends Job implements SelfHandling
 {

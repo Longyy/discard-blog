@@ -36,3 +36,7 @@ function page_image($value = null) {
 
     return $value;
 }
+
+function msubstr($str, $start=0, $len=30, $charset='utf-8') {
+    return mb_substr($str, $start, $len, $charset);
+}

@@ -14,6 +14,11 @@
     <div class="title">
         <h2>最近文章</h2>
     </div>
+    <ul class="list-unstyled list">
+        @foreach ($aLatestPost as $aPost)
+            <li><a href="{{ $aPost->url() }}">{{ msubstr($aPost->title) }}...</a></li>
+        @endforeach
+    </ul>
 
 </div>
 
